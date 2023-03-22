@@ -1,0 +1,733 @@
+// Définition des variables pour les tailles d'écran
+$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import '~sal.js/dist/sal.css';
+
+@font-face {
+  font-family: Cunia;
+  src: url(/fonts/Cunia.ttf);
+}
+
+@font-face {
+  font-family: Manuscrit;
+  src: url(/fonts/Blluebong.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+html,
+body {
+  font-family: 'Barlow', sans-serif;
+  scroll-behavior: smooth;
+  min-width: 100%;
+
+
+
+}
+
+.global {
+  overflow: hidden;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+.home {
+  position: relative;
+  background-image: url(/imagesSite/homebackground.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+
+
+  #arrow {
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+
+    img {
+      width: 70px;
+
+      &:hover {
+        width: 78px;
+      }
+    }
+  }
+
+  .banner {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    border-radius: 5px;
+    line-height: 20px;
+    left: 50%;
+    position: absolute;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    span {
+      color: rgb(128, 216, 208);
+    }
+  }
+
+  .slogan {
+
+    img {
+      width: 54%;
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+        margin-top: 55px;
+      }
+      
+     
+
+    }
+  }
+
+  .contentHome {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 40%;
+
+
+
+    h1 {
+      width: 100%;
+      text-align: center;
+      font-family: "Barlow", sans-serif;
+      font-weight: 200;
+      font-size: 25pt;
+      color: white;
+    }
+
+
+  }
+
+  nav {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(11.1px);
+    -webkit-backdrop-filter: blur(11.1px);
+
+
+
+    .menu {
+      width: 70%;
+      display: flex;
+      justify-content: space-evenly;
+
+
+      li {
+        text-decoration: none;
+        height: 50px;
+
+        span {
+          color: rgb(128, 216, 208);
+        }
+
+
+        .langueSelect {
+          font-size: 20px;
+        }
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-family: "Barlow", sans-serif;
+          font-weight: 600;
+          line-height: 70px;
+
+          &:hover {
+            color: rgb(128, 216, 208);
+          }
+        }
+      }
+
+      .social {
+        ul {
+          display: flex;
+
+          img {
+            width: 30px;
+            height: 30px;
+            margin-top: 18px;
+            margin-left: 5px;
+
+          }
+        }
+      }
+    }
+
+    .imgLogo {
+      width: 30%;
+      position: relative;
+
+      img {
+        position: absolute;
+        height: 55px;
+        top: 10px;
+        left: 5%;
+      }
+    }
+
+  }
+}
+
+
+.aboutMixTeam {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+
+  .team {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    margin-top: 45px;
+    flex-wrap: wrap;
+
+    .logoTeam {
+      width: 20%;
+      text-align: left;
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+       
+      }
+      
+
+      h4 {
+        font-family: "Barlow", sans-serif;
+        font-weight: 300;
+        font-size: 3em;
+        text-align: center;
+        @media screen and (max-width: $small-screen) {
+          font-size: 30px;
+        }
+
+        span {
+          color: rgb(128, 216, 208);
+          font-family: Manuscrit;
+          @media screen and (max-width: $small-screen) {
+           font-size: 70px;
+          }
+
+          font-size: 100px;
+
+        }
+      }
+    }
+
+    .collectionMember {
+      width: 80%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+        padding-bottom: 25px;
+      }
+     
+
+
+      .teamMembre {
+
+        .avatar {
+          position: relative;
+          width: 130px;
+          height: 130px;
+          border-radius: 65px;
+          margin: auto;
+          border: 2px solid black;
+
+          img {
+
+            width: 100px;
+            height: 100px;
+            border-radius: 65px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+
+          }
+
+          .pict {
+            opacity: 0;
+
+            width: 130px;
+            height: 130px;
+            border-radius: 65px;
+            top: 0px;
+            left: 0px;
+            margin: auto;
+
+          }
+          .noPict{
+            opacity: 0;
+            width: 106px;
+            height: 103px;
+            border-radius: 65px;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+          }
+
+          &:hover {
+            .pict {
+              opacity: 1;
+              transition-duration: 0.1s;
+            }
+            .noPict {
+              opacity: 1;
+              transition-duration: 0.1s;
+            }
+          }
+        }
+
+        h2 {
+          font-size: 23px;
+          padding-top: 15px;
+          font-weight: bold;
+        }
+
+        h3 {
+          color: black;
+          font-size: 16px;
+
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+
+  .bande {
+    width: 150%;
+    background-color: #121212;
+    height: 100px;
+    transform: rotate(-1deg);
+    margin-left: -50%;
+    margin-top: -1%;
+
+  }
+
+  .about {
+    background-color: #121212;
+    width: 100%;
+    min-height: 60vh;
+    overflow: hidden;
+
+    h2 {
+      width: 90%;
+      margin: auto;
+      text-align: right;
+      padding-top: 75px;
+      font-family: "Abel", sans-serif;
+      color: white;
+      font-size: 55px;
+      text-decoration: underline;
+      text-decoration-color: rgb(128, 216, 208);
+    }
+
+    .contenuAbout {
+      width: 90%;
+      margin: auto;
+      padding-top: 40px;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      
+
+
+      .logoHight {
+        width: 50%;
+        @media screen and (max-width: $small-screen) {
+          width: 100%;
+         
+        }
+
+        h3 {
+          color: rgb(128, 216, 208);
+
+        }
+
+        img {
+          width: 200px;
+          margin-bottom: 15px;
+        }
+      }
+
+      .texteApropos {
+        width: 50%;
+        text-align: right;
+        @media screen and (max-width: $small-screen) {
+         
+          width: 100%;
+          margin-top: 55px;
+        }
+
+        p {
+          color: white;
+          margin-bottom: 15px;
+          font-size: 17px;
+
+          strong {
+            color: rgb(128, 216, 208);
+          }
+        }
+
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-family: "Barlow", sans-serif;
+          font-weight: 700;
+          font-size: 22px;
+          line-height: 60px;
+          padding-bottom: 15px;
+
+          img {
+            padding-left: 15px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.service {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212;
+  overflow: hidden;
+
+  h2 {
+    width: 90%;
+    margin: auto;
+    padding-top: 75px;
+    
+    font-family: "Abel", sans-serif;
+    color: white;
+    font-size: 55px;
+    text-decoration: underline;
+    text-decoration-color: rgb(128, 216, 208);
+    text-align: left;
+
+  }
+
+  .bande {
+    position: absolute;
+    width: 150%;
+    background-color: #121212;
+    height: 100px;
+    transform: rotate(-1deg);
+    margin-left: -50%;
+    margin-top: -50px;
+
+
+  }
+
+  .slideServices {
+    width: 100%;
+    height: 600px;
+    margin-top: 50px;
+    @media screen and (max-width: $small-screen) {
+      height: 900px;
+      margin-top: 0px;
+    }
+
+    .slider-wrapper {
+      height: 510px;
+      @media screen and (max-width: $small-screen) {
+        height: 900px;
+      }
+    }
+
+    p {
+      color: white;
+      padding-top: 15px;
+    }
+
+    h3 {
+      color: white;
+    }
+
+    .itemService {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+     
+
+      .right {
+        width: 50%;
+        text-align: center;
+        padding-top: 50px;
+        
+        @media screen and (max-width: $small-screen) {
+          width: 100%;
+        padding-bottom: 25px;
+        }
+
+        ul {
+          margin-top: 10px;
+        }
+
+        h3 {
+          font-size: 26px;
+
+
+
+        }
+
+        strong {
+          color: rgb(128, 216, 208);
+          font-size: 20px;
+        }
+
+      }
+
+      .left {
+        width: 50%;
+        @media screen and (max-width: $small-screen) {
+          width: 100%;
+        
+        }
+
+        img {
+          width: auto;
+          height: 420px;
+          border-radius: 15px;
+          @media screen and (max-width: $small-screen) {
+            width: 80%;
+            height: auto;
+            margin-top: 25px;
+          
+          }
+          
+        }
+
+      }
+
+    }
+
+    .carousel-status {
+      display: none;
+    }
+  }
+
+  .testimonial {
+    h3 {
+      width: 100%;
+      text-align: center;
+      font-size: 20pt;
+      font-weight: 400;
+      text-decoration: underline;
+      padding-top: 80px;
+    }
+
+    .sliderMarque {
+      display: flex;
+      justify-content: space-around;
+
+      .marque {
+        padding-top: 45px;
+
+        img {
+          height: 75px;
+          filter: grayscale(200%);
+
+          &:hover {
+            filter: grayscale(0%);
+            transition-duration: 0.9s;
+          }
+        }
+
+      }
+    }
+
+    background-color: white;
+    height: 280px;
+  }
+
+}
+
+
+
+
+
+.Contact {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212;
+
+  h2 {
+    width: 90%;
+    margin: auto;
+    text-align: left;
+
+    padding-top: 75px;
+    font-family: "Abel", sans-serif;
+    color: white;
+    font-size: 55px;
+    text-decoration: underline;
+    text-decoration-color: rgb(128, 216, 208);
+  }
+
+  .contentContact {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    margin-top: 100px;
+    color: white;
+    flex-wrap: wrap;
+    @media screen and (max-width: $small-screen) {
+      margin-top: 40px;
+    
+    }
+
+   
+
+    .left {
+      width: 50%;
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+      
+      }
+
+      img {
+        width: 200px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        color: white;
+        font-weight: 400;
+        font-size: 26pt;
+      }
+
+      h4 {
+        color: rgb(128, 216, 208);
+        font-size: 14px;
+      }
+
+      .horaire {
+        padding-top: 40px;
+        padding-bottom: 15px;
+        font-size: 20px;
+      }
+
+      .adresse {
+        font-size: 18px;
+        padding-bottom: 15px;
+      }
+
+      .mail {
+        font-size: 22px;
+      }
+
+      .phone {
+        padding-top: 15px;
+        font-size: 22px;
+        color: rgb(128, 216, 208);
+      }
+    }
+
+    .right {
+      width: 50%;
+      padding-top: 120px;
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+        padding-top: 40px;
+        padding-bottom: 30px;
+      
+      }
+
+      p {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .text2 {
+        padding-top: 30px;
+
+        .font {
+          font-family: Manuscrit;
+          font-size: 75px;
+          color: rgb(128, 216, 208);
+          line-height: 90px;
+          font-weight: 100;
+        }
+
+      }
+    }
+  }
+
+}
+
+footer {
+  width: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 70px;
+
+
+
+  .contentFooter {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+
+    .left {
+      img {
+        height: 50px;
+        margin-top: 12px;
+
+      }
+    }
+
+    .center {
+      p {
+        color: white;
+        margin-top: 22px;
+      }
+    }
+
+    .right {
+      img {
+        height: 32px;
+        margin-top: 18px;
+        padding-right: 5px;
+      }
+    }
+
+
+
+
+  }
+}
