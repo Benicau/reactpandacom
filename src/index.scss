@@ -3,9 +3,9 @@ $small-screen: 768px;
 $medium-screen: 992px;
 $large-screen: 1200px;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import '~sal.js/dist/sal.css';
+
 
 @font-face {
   font-family: Cunia;
@@ -22,15 +22,15 @@ $large-screen: 1200px;
   margin: 0;
 }
 
-
 html,
 body {
   font-family: 'Barlow', sans-serif;
   scroll-behavior: smooth;
   min-width: 100%;
-
-
-
+  -webkit-user-select: none; /* Pour les navigateurs Webkit */
+  -moz-user-select: none; /* Pour les navigateurs Firefox */
+  -ms-user-select: none; /* Pour les navigateurs Edge */
+  user-select: none; /* Pour les autres navigateurs */
 }
 
 .global {
@@ -40,6 +40,13 @@ body {
 ul {
   text-decoration: none;
   list-style: none;
+}
+
+.menuResponsive {
+ 
+  @media screen and (max-width: $small-screen) {
+    transform: translateY(150vh);
+  }
 }
 
 .home {
@@ -56,7 +63,7 @@ ul {
   #arrow {
     position: absolute;
     width: 100%;
-    bottom: 5%;
+    bottom: 13%;
 
     img {
       width: 70px;
@@ -67,33 +74,32 @@ ul {
     }
   }
 
-  .banner {
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 15px;
-    border-radius: 5px;
-    line-height: 20px;
-    left: 50%;
-    position: absolute;
-    top: 55%;
-    transform: translate(-50%, -50%);
-    width: 100%;
 
-    span {
-      color: rgb(128, 216, 208);
-    }
-  }
 
   .slogan {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 17%;
+
+    @media screen and (max-width: $medium-screen) {
+      top: 21%;
+
+    }
+
+    @media screen and (max-width: $small-screen) {
+      top: 20%;
+
+    }
 
     img {
-      width: 54%;
-      @media screen and (max-width: $small-screen) {
-        width: 100%;
-        margin-top: 55px;
-      }
-      
-     
+      width: 70%;
 
+      @media screen and (max-width: $small-screen) {
+        width: 140%;
+        margin-left: -20%;
+
+      }
     }
   }
 
@@ -101,9 +107,7 @@ ul {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 40%;
-
-
+    top: 20%;
 
     h1 {
       width: 100%;
@@ -114,37 +118,118 @@ ul {
       color: white;
     }
 
+    h2 {
+      position: absolute;
+      color: white;
+      font-weight: 100;
+      width: 100%;
+      top: 50%;
+    }
+  }
 
+  .header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    .scrolled {
+      background-color: #121212;
+    }
   }
 
   nav {
     display: flex;
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(11.1px);
-    -webkit-backdrop-filter: blur(11.1px);
+    height: 100%;
+    .open{
+      .bar1{
+        transform: translateY(8px) rotate(-45deg);
+      }
+      .bar2 {
+        opacity: 0;
+      }
+      .bar3 {
+        transform: translateY(-8px) rotate(45deg);
+      }
+    }
 
+    .burger {
+      position: absolute;
+      right: 25px;
+      height: 50px;
+      top: 22px;
+      cursor: pointer;
+      z-index: 999 !important;
 
+      .bar {
+        width: 35px;
+        margin-top: 6px;
+        height: 2px;
+        background-color: white;
+        transition: all .7s;
+        display: none;
+
+        @media screen and (max-width: $small-screen) {
+          display: block;
+
+        }
+      }
+
+      .bar2 {
+        background-color: #00BCC8;
+        width: 22px;
+        margin-left: 13px;
+      }
+    }
 
     .menu {
       width: 70%;
       display: flex;
       justify-content: space-evenly;
 
+      @media screen and (max-width: $small-screen) {
+       width: 100%;
+       min-height: 100vh;
+       position: absolute;
+       background-color: #121212;
+       flex-direction: column;
+       display: block;
+       padding-top: 140px;
+       top: -150vh;
+       transition: transform 0.5s;
+      }
+      
+   .souligne
+   {
+    @media screen and (max-width: $small-screen) {
+      border-bottom: 1px solid #00BCC8;
+    height: 70px;
+
+      }
+   }
+
+      .langue{
+        @media screen and (max-width: $small-screen) {
+         position: absolute;
+         top:70%;
+         width: 100%;
+         }
+      }
 
       li {
         text-decoration: none;
         height: 50px;
+        @media screen and (max-width: $small-screen) {
+          width: 70%;
+          margin: auto;
+         }
+        
 
         span {
           color: rgb(128, 216, 208);
         }
-
 
         .langueSelect {
           font-size: 20px;
@@ -158,7 +243,7 @@ ul {
           line-height: 70px;
 
           &:hover {
-            color: rgb(128, 216, 208);
+            color: #00BCC8;
           }
         }
       }
@@ -166,14 +251,29 @@ ul {
       .social {
         ul {
           display: flex;
-
-          img {
+          @media screen and (max-width: $small-screen) {
+            position: absolute;
+            gap: 5px;
+            bottom: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            
+           }
+           li{
+          
+            img {
             width: 30px;
             height: 30px;
             margin-top: 18px;
             margin-left: 5px;
 
+            @media screen and (max-width: $small-screen) {
+              width: 50px;
+            height: 50px;
+              
+             }
           }
+           }   
         }
       }
     }
@@ -181,12 +281,22 @@ ul {
     .imgLogo {
       width: 30%;
       position: relative;
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+
+      }
 
       img {
         position: absolute;
         height: 55px;
         top: 10px;
         left: 5%;
+        @media screen and (max-width: $small-screen) {
+         left: 50%;
+         transform: translateX(-50%);
+         z-index: 999999;
+
+        }
       }
     }
 
@@ -199,22 +309,18 @@ ul {
   width: 100%;
   min-height: 100vh;
 
-
   .team {
     width: 90%;
     margin: auto;
     display: flex;
     margin-top: 45px;
     flex-wrap: wrap;
-
     .logoTeam {
       width: 20%;
       text-align: left;
       @media screen and (max-width: $small-screen) {
         width: 100%;
-       
       }
-      
 
       h4 {
         font-family: "Barlow", sans-serif;
@@ -226,14 +332,12 @@ ul {
         }
 
         span {
-          color: rgb(128, 216, 208);
+          color: #00BCC8;
           font-family: Manuscrit;
           @media screen and (max-width: $small-screen) {
-           font-size: 70px;
+            font-size: 70px;
           }
-
           font-size: 100px;
-
         }
       }
     }
@@ -243,15 +347,12 @@ ul {
       display: flex;
       justify-content: space-evenly;
       flex-wrap: wrap;
+      padding-bottom: 15px;
       @media screen and (max-width: $small-screen) {
         width: 100%;
-        padding-bottom: 25px;
       }
-     
-
 
       .teamMembre {
-
         .avatar {
           position: relative;
           width: 130px;
@@ -259,30 +360,26 @@ ul {
           border-radius: 65px;
           margin: auto;
           border: 2px solid black;
-
           img {
-
             width: 100px;
             height: 100px;
             border-radius: 65px;
             position: absolute;
             top: 15px;
             left: 15px;
-
           }
 
           .pict {
             opacity: 0;
-
             width: 130px;
             height: 130px;
             border-radius: 65px;
             top: 0px;
             left: 0px;
             margin: auto;
-
           }
-          .noPict{
+
+          .noPict {
             opacity: 0;
             width: 106px;
             height: 103px;
@@ -297,6 +394,7 @@ ul {
               opacity: 1;
               transition-duration: 0.1s;
             }
+
             .noPict {
               opacity: 1;
               transition-duration: 0.1s;
@@ -313,7 +411,6 @@ ul {
         h3 {
           color: black;
           font-size: 16px;
-
           margin-top: 2px;
         }
       }
@@ -327,7 +424,6 @@ ul {
     transform: rotate(-1deg);
     margin-left: -50%;
     margin-top: -1%;
-
   }
 
   .about {
@@ -344,35 +440,50 @@ ul {
       font-family: "Abel", sans-serif;
       color: white;
       font-size: 55px;
-      text-decoration: underline;
-      text-decoration-color: rgb(128, 216, 208);
+      text-decoration: underline solid 2px;
+      text-underline-offset: 25px;
+
+      font-weight: 100;
+      text-decoration-color: #00BCC8;
+      @media screen and (max-width: $medium-screen) {
+        font-size: 30px;
+        text-underline-offset: 12px;
+      }
+      @media screen and (max-width: $small-screen) {
+        top: 20%;
+      }
     }
 
     .contenuAbout {
       width: 90%;
       margin: auto;
-      padding-top: 40px;
+      padding-top: 60px;
       position: relative;
       display: flex;
       flex-wrap: wrap;
-      
-
+      padding-bottom: 50px;
+      h3 {
+        color: white;
+        font-weight: 200;
+        font-size: 44px;
+        span {
+          font-weight: 500;
+        }
+      }
 
       .logoHight {
         width: 50%;
+
         @media screen and (max-width: $small-screen) {
           width: 100%;
-         
-        }
-
-        h3 {
-          color: rgb(128, 216, 208);
-
         }
 
         img {
-          width: 200px;
+          width: 350px;
           margin-bottom: 15px;
+          @media screen and (max-width: $small-screen) {
+           width: 280px; 
+          }
         }
       }
 
@@ -380,7 +491,6 @@ ul {
         width: 50%;
         text-align: right;
         @media screen and (max-width: $small-screen) {
-         
           width: 100%;
           margin-top: 55px;
         }
@@ -389,22 +499,21 @@ ul {
           color: white;
           margin-bottom: 15px;
           font-size: 17px;
+          font-weight: 200;
 
           strong {
-            color: rgb(128, 216, 208);
+            font-weight: 500;
           }
         }
-
 
         a {
           text-decoration: none;
           color: white;
           font-family: "Barlow", sans-serif;
-          font-weight: 700;
+          font-weight: 400;
           font-size: 22px;
           line-height: 60px;
-          padding-bottom: 15px;
-
+          margin-bottom: 45px;
           img {
             padding-left: 15px;
             height: 20px;
@@ -428,14 +537,200 @@ ul {
     width: 90%;
     margin: auto;
     padding-top: 75px;
-    
     font-family: "Abel", sans-serif;
     color: white;
     font-size: 55px;
-    text-decoration: underline;
-    text-decoration-color: rgb(128, 216, 208);
     text-align: left;
+    text-decoration: underline solid 2px;
+    text-underline-offset: 25px;
+    font-weight: 100;
+    text-decoration-color: #00BCC8;
 
+    @media screen and (max-width: $medium-screen) {
+      font-size: 30px;
+      text-underline-offset: 12px;
+    }
+
+    @media screen and (max-width: $small-screen) {
+      top: 20%;
+    }
+  }
+
+  .carouFull {
+    min-height: 500px;
+    width: 100%;
+    margin-top: 70px;
+    display: flex;
+    @media screen and (max-width: $small-screen) {
+     display: block;
+     
+    }
+    .left {
+      width: 20%;
+      text-align: right;
+      @media screen and (max-width: $large-screen) {
+        width: 35%;
+      }
+      @media screen and (max-width: $small-screen) {
+        width: 80%;
+        margin: auto;
+
+       }
+      ul {
+        @media screen and (max-width: $small-screen) {
+          display: flex;
+          justify-content: space-around;
+          padding-bottom: 40px;
+          
+         }
+        li {
+          border-bottom: 1px solid white;
+          margin-bottom: 10px;
+          @media screen and (max-width: $small-screen) {
+            border-bottom: none;
+            width: 35px;
+            height: 35px;
+            background-color: white;
+            overflow: hidden;
+            border-radius: 20px;
+            &:hover{
+              background-color: #00BCC8 ;
+            }
+             
+           
+           }
+          a {
+            text-decoration: none;
+            line-height: 50px;
+            color: white;
+            font-size: 20px;
+            &:hover {
+              color: #00BCC8;
+            }
+          
+            @media screen and (max-width: $small-screen) {
+              color: transparent;
+              display: block;
+             
+             }
+          }
+          .on {
+            color:#00BCC8;
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 80%;
+      text-align: center;
+      position: relative;
+      @media screen and (max-width: $large-screen) {
+        width: 65%;
+      }
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+      
+      }
+    
+      .activeService {
+        display: block;
+      
+      }
+      .noActiveService {
+         display: none;
+       
+      }
+       
+      .content {
+        display: flex;
+        width: 100%;
+
+
+        .textService {
+          width: 60%;
+          margin-left: 10%;
+          margin-right: 10%;
+          margin-bottom: 20px;
+          @media screen and (max-width: $large-screen) {
+            width: 100%;
+          }
+          @media screen and (max-width: $small-screen) {
+           margin-top: 50%;
+           background-color: #121212;
+           z-index: 99;
+            
+          }
+          
+
+          h3 {
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-size: 35px;
+            @media screen and (max-width: $small-screen) {
+              width: 160%;
+              background-color: #121212;
+              margin: 0;
+              margin-left: -30%;
+              padding-top: 30px;
+                  
+             }
+            
+          }
+        }
+         .text{
+         
+
+          @media screen and (max-width: $small-screen) {
+                 background-color: #121212;
+          width: 150%;
+          margin-left: -25%;
+          padding-top: 25px;  
+           }
+              p {
+          color: white;
+          margin: 15px;
+          font-size: 17px;
+          @media screen and (max-width: $small-screen) {
+            width: 80%;    
+            margin: auto;   
+           }
+        }
+             }
+
+        
+
+      }
+
+      .onlink {
+        display: block;
+        display: flex;
+        width: 100%;
+      }
+     
+        img {
+        width:auto;
+        margin-bottom: 40px;
+        height: 330px;
+        @media screen and (max-width: $large-screen) and (min-width: $small-screen) {
+          display: none;
+        }
+        @media screen and (max-width: $small-screen) {
+          width: 100%;
+          height: auto;
+          max-height: 400px;
+          position: absolute;
+          
+          
+          
+        }
+      }
+    
+
+      
+    }
   }
 
   .bande {
@@ -446,97 +741,6 @@ ul {
     transform: rotate(-1deg);
     margin-left: -50%;
     margin-top: -50px;
-
-
-  }
-
-  .slideServices {
-    width: 100%;
-    height: 600px;
-    margin-top: 50px;
-    @media screen and (max-width: $small-screen) {
-      height: 900px;
-      margin-top: 0px;
-    }
-
-    .slider-wrapper {
-      height: 510px;
-      @media screen and (max-width: $small-screen) {
-        height: 900px;
-      }
-    }
-
-    p {
-      color: white;
-      padding-top: 15px;
-    }
-
-    h3 {
-      color: white;
-    }
-
-    .itemService {
-      width: 90%;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-     
-
-      .right {
-        width: 50%;
-        text-align: center;
-        padding-top: 50px;
-        
-        @media screen and (max-width: $small-screen) {
-          width: 100%;
-        padding-bottom: 25px;
-        }
-
-        ul {
-          margin-top: 10px;
-        }
-
-        h3 {
-          font-size: 26px;
-
-
-
-        }
-
-        strong {
-          color: rgb(128, 216, 208);
-          font-size: 20px;
-        }
-
-      }
-
-      .left {
-        width: 50%;
-        @media screen and (max-width: $small-screen) {
-          width: 100%;
-        
-        }
-
-        img {
-          width: auto;
-          height: 420px;
-          border-radius: 15px;
-          @media screen and (max-width: $small-screen) {
-            width: 80%;
-            height: auto;
-            margin-top: 25px;
-          
-          }
-          
-        }
-
-      }
-
-    }
-
-    .carousel-status {
-      display: none;
-    }
   }
 
   .testimonial {
@@ -546,38 +750,28 @@ ul {
       font-size: 20pt;
       font-weight: 400;
       text-decoration: underline;
-      padding-top: 80px;
+      padding-top: 70px;
+      padding-bottom: 50px;
     }
-
     .sliderMarque {
-      display: flex;
-      justify-content: space-around;
-
+      width: 100%;
       .marque {
-        padding-top: 45px;
-
         img {
-          height: 75px;
+          max-height: 75px;
+          max-width: 140px;
           filter: grayscale(200%);
-
+          margin-left: 10%;
           &:hover {
             filter: grayscale(0%);
             transition-duration: 0.9s;
           }
         }
-
       }
     }
-
     background-color: white;
     height: 280px;
   }
-
 }
-
-
-
-
 
 .Contact {
   position: relative;
@@ -588,14 +782,24 @@ ul {
   h2 {
     width: 90%;
     margin: auto;
-    text-align: left;
-
     padding-top: 75px;
     font-family: "Abel", sans-serif;
     color: white;
     font-size: 55px;
-    text-decoration: underline;
-    text-decoration-color: rgb(128, 216, 208);
+    text-align: left;
+    text-decoration: underline solid 2px;
+    text-underline-offset: 25px;
+    font-weight: 100;
+    text-decoration-color: #00BCC8;
+
+    @media screen and (max-width: $medium-screen) {
+      font-size: 30px;
+      text-underline-offset: 12px;
+    }
+
+    @media screen and (max-width: $small-screen) {
+      top: 20%;
+    }
   }
 
   .contentContact {
@@ -605,20 +809,16 @@ ul {
     margin-top: 100px;
     color: white;
     flex-wrap: wrap;
+
     @media screen and (max-width: $small-screen) {
       margin-top: 40px;
-    
     }
-
-   
-
     .left {
       width: 50%;
       @media screen and (max-width: $small-screen) {
         width: 100%;
-      
+        margin-bottom: 30px;
       }
-
       img {
         width: 200px;
         margin-bottom: 15px;
@@ -631,7 +831,7 @@ ul {
       }
 
       h4 {
-        color: rgb(128, 216, 208);
+        color: #00BCC8;
         font-size: 14px;
       }
 
@@ -653,7 +853,7 @@ ul {
       .phone {
         padding-top: 15px;
         font-size: 22px;
-        color: rgb(128, 216, 208);
+        color: #00BCC8;
       }
     }
 
@@ -664,7 +864,7 @@ ul {
         width: 100%;
         padding-top: 40px;
         padding-bottom: 30px;
-      
+
       }
 
       p {
@@ -678,7 +878,7 @@ ul {
         .font {
           font-family: Manuscrit;
           font-size: 75px;
-          color: rgb(128, 216, 208);
+          color: #00BCC8;
           line-height: 90px;
           font-weight: 100;
         }
@@ -686,7 +886,6 @@ ul {
       }
     }
   }
-
 }
 
 footer {
@@ -694,40 +893,32 @@ footer {
   position: relative;
   background-color: rgba(0, 0, 0, 0.9);
   height: 70px;
-
-
-
   .contentFooter {
     display: flex;
     width: 90%;
     margin: auto;
     justify-content: space-between;
-
     .left {
       img {
         height: 50px;
         margin-top: 12px;
-
       }
     }
-
     .center {
       p {
         color: white;
         margin-top: 22px;
       }
     }
-
     .right {
+      @media screen and (max-width: $small-screen) {
+       display: none;
+      }
       img {
         height: 32px;
         margin-top: 18px;
         padding-right: 5px;
       }
     }
-
-
-
-
   }
 }

@@ -7,14 +7,14 @@
       var langage = navigator.language.substr(0,2)
       localStorage.setItem('langage', langage) 
   }
+
     var balise = document.createElement("meta")
     balise.setAttribute('lang',langage)
     head.appendChild(balise)
   
-    var js = document.createElement("script")
-    js.setAttribute('src', 'custom.js')
-    head.appendChild(js)
+  
   </script>
+
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -31,3 +31,7 @@
   <body>
     <div id="root"></div>
 </html>
+
+
+
+
