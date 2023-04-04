@@ -1,22 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import HomePageFr from "./pages/HomePageFr";
-import HomePageEn from "./pages/HomePageEn";
+import HomePageEn from "./pages/en/HomePage";
+import HomePageFr from "./pages/fr/HomePage";
+import SlideStart from './components/fr/SliderService/SlideStart';
+
 
 function App() {
-  var contenu = ""
-  if(localStorage.getItem('langage') === "fr"){
-
-    contenu = <Route path="/" element={<HomePageFr />} />
-  }else{
-    contenu = <Route path="/" element={<HomePageEn />} />
-  }
-
   return (
     <div className="App"> 
+       <SlideStart></SlideStart>
       <Router>
         <Routes>
-        {contenu}
+          <Route path="/" element={<HomePageFr />} />
+          <Route path="/en" element={<HomePageEn />} />
         </Routes>
       </Router>
     </div>

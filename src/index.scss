@@ -59,6 +59,12 @@ ul {
   width: 100%;
   min-height: 100vh;
 
+  @media screen and (max-width: $small-screen) {
+    background-image: url(/imagesSite/homebackground-tablette.png);
+
+  }
+
+
 
   #arrow {
     position: absolute;
@@ -557,7 +563,7 @@ ul {
   }
 
   .carouFull {
-    min-height: 500px;
+    min-height: 570px;
     width: 100%;
     margin-top: 70px;
     display: flex;
@@ -586,6 +592,16 @@ ul {
         li {
           border-bottom: 1px solid white;
           margin-bottom: 10px;
+          &:first-child{
+            @media screen and (max-width: $small-screen)
+            {
+              background-color: #00BCC8;
+            }
+            a {
+            
+                color: #00BCC8; 
+            }
+          }
           @media screen and (max-width: $small-screen) {
             border-bottom: none;
             width: 35px;
@@ -607,6 +623,7 @@ ul {
             &:hover {
               color: #00BCC8;
             }
+            
           
             @media screen and (max-width: $small-screen) {
               color: transparent;
@@ -625,6 +642,7 @@ ul {
       width: 80%;
       text-align: center;
       position: relative;
+      
       @media screen and (max-width: $large-screen) {
         width: 65%;
       }
@@ -632,7 +650,17 @@ ul {
         width: 100%;
       
       }
-    
+
+      .slideService
+      {
+        display: none;
+        &:first-child
+      {
+        display: block;
+      }
+
+      }
+      
       .activeService {
         display: block;
       
@@ -809,6 +837,7 @@ ul {
     margin-top: 100px;
     color: white;
     flex-wrap: wrap;
+   
 
     @media screen and (max-width: $small-screen) {
       margin-top: 40px;
@@ -871,6 +900,13 @@ ul {
         font-size: 30px;
         font-weight: bold;
       }
+      .text1
+      {
+        p{
+          font-size: 20px;
+        }
+        
+      }
 
       .text2 {
         padding-top: 30px;
@@ -920,5 +956,11 @@ footer {
         padding-right: 5px;
       }
     }
+  }
+}
+
+.app{
+  label{
+    font-size: 25px;
   }
 }

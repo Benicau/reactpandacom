@@ -50,7 +50,7 @@ function SliderClient() {
             axios.get('https://symfony.pandacom.be/api/marques'),
             ])
             .then(([logoResponse]) => {       
-                setLogo(logoResponse.data['hydra:member']);     
+                setLogo(logoResponse.data['hydra:member']);   
                 })
             .catch(error => {
                 console.error('Error:', error);
